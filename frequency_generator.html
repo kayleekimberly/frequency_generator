@@ -1,20 +1,71 @@
 <html>
 <head>
-<style>
-div {
-  text-align: center;
+  <script>
+  function copyFrequency() {
+    var frequency = document.getElementById("generated-frequency");
+    frequency.select();
+    frequency.setSelectionRange(0, 99999);
+    document.execCommand("copy");
 }
+</script>
+<style>
+
 input[type=text] {
   width: auto;
+  background-color: #0F0F0F;
+  color: #FFFFFF;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 0.75rem;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+  border-bottom-left-radius: 0.75rem;
+  font-size: 1em;
+  font-family: 'Averia Sans Libre', sans-serif;
+  font-weight: 700;
+  text-align: center;
 }
+
+input[type=text]:focus{
+  outline:none;
+}
+
+button {
+background-color: #0F0F0F;
+color: #FFFFFF;
+width: auto;
+height: 2.5rem;
+line-height: 2.5rem;
+vertical-align: middle;
+padding: 0 1.25rem;
+padding-top: 0px;
+padding-right: 1.25rem;
+padding-bottom: 0px;
+padding-left: 1.25rem;
+font-size: 1em;
+font-family: 'Averia Sans Libre', sans-serif;
+font-weight: 700;
+border-style:none;
+border-radius: 0.75rem;
+border-top-left-radius: 0.75rem;
+border-top-right-radius: 0.75rem;
+border-bottom-right-radius: 0.75rem;
+border-bottom-left-radius: 0.75rem;
+outline:none;
+}
+
+button:focus{
+  outline:none;
+}
+
 </style>
 </head>
 <body onload=refreshFrequency()>
 <div>
-  Frequency
   <br><br>
-  <input size="1" type="text" id="generated-frequency" aria-label="Frequency" readonly>
-  <button id="refresh-button" onclick="refreshFrequency()">Refresh</button>
+  <input onclick=copyFrequency() size="5" type="text" id="generated-frequency" aria-label="Frequency" readonly>
+  <button id="refresh-button" onclick="refreshFrequency()">REFRESH</button>
 </div>
 </body>
 </html>
