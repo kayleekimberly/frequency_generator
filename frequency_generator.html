@@ -1,0 +1,43 @@
+<html>
+<head>
+<style>
+div {
+  text-align: center;
+}
+input[type=text] {
+  width: auto;
+}
+</style>
+</head>
+<body onload=refreshFrequency()>
+<div>
+  Frequency
+  <br><br>
+  <input size="1" type="text" id="generated-frequency" aria-label="Frequency" readonly>
+  <button id="refresh-button" onclick="refreshFrequency()">Refresh</button>
+</div>
+</body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js">
+</script>
+
+<script>
+var min = 100.0;
+var max = 999.9;
+
+function refreshFrequency(){
+var seed = new Math.seedrandom(getDateSeed());
+var generatedNumber = (seed() * (max-min+1) + min).toFixed(1);
+document.getElementById("generated-frequency").value = generatedNumber;
+}
+
+function getDateSeed(){
+  var today = new Date();
+  var seed = today.getUTCFullYear() + " " +
+             today.getUTCMonth() + " " +
+             today.getUTCDate() + " " +
+             today.getUTCHours();
+  return seed;
+}
+</script>
